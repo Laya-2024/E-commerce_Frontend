@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - ShopCart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1>🛒 ShopCart</h1>
+            <div class="nav-right">
+                <span id="userName"></span>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Cart <span id="cartCount">0</span>
+                </button>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="filters">
+            <h3>Filters</h3>
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="categoryFilter">
+                    <option value="">All</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Books">Books</option>
+                    <option value="Home">Home</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Price Range</label>
+                <input type="range" id="priceFilter" min="0" max="1000" value="1000">
+                <span id="priceValue">₹1000</span>
+            </div>
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="searchFilter" placeholder="Search products...">
+            </div>
+            <button class="btn-clear" onclick="clearFilters()">Clear Filters</button>
+        </aside>
+
+        <main class="products-section">
+            <h2>Products</h2>
+            <div class="products-grid" id="productsGrid"></div>
+        </main>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
